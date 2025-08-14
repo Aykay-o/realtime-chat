@@ -20,6 +20,12 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
     console.log("user has entered the server:", socket.id);
+
+    // messages
+    socket.on('chat message', (msg) => {
+        console.log(`message from ${socket.id}: ${msg}`);
+        io.emit('recieve message', msg);
+    });
 });
 
 server.listen(port, () => {
