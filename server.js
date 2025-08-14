@@ -4,6 +4,9 @@ import { fileURLToPath } from 'url';
 import path, { dirname } from 'path'; 
 import { Server } from 'socket.io';
 
+// user data
+import { getUsername, registerUser, deleteUser } from './src/data/users.js' 
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -21,10 +24,20 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
     console.log("user has entered the server:", socket.id);
 
+    // register user
+    socket.on('register user', (username) => {
+        registerUser(socket.id, username);
+    });
+
+    // user disconnect
+    socket.on('disconnect', () => {
+        deleteUser(socket.id);
+    });
+
     // messages
     socket.on('chat message', (msg) => {
-        console.log(`message from ${socket.id}: ${msg}`);
-        io.emit('recieve message', msg);
+        console.log(`${getUsername(socket.id)}: ${msg}`);
+        io.emit('recieve message', getUsername(socket.id), msg);
     });
 });
 
