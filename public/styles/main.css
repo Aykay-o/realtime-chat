@@ -1,4 +1,35 @@
-body {
-    background-color: rgb(37, 37, 37);
-    font-family: 'Courier New', Courier, monospace;
+:root {
+    --white-clr: #f8f8f7;
+    --red-clr: #cc3e64;
+    --black-clr: #252525;
 }
+
+body {
+    background-color: var(--black-clr);
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--white-clr);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+}
+
+.navbar ul {
+    gap: 2em;
+}
+
+.navbar ul li a{
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.nav-menu {
+    display: flex;
+}
+

@@ -21,6 +21,10 @@ app.get('/', (req, res) => {
     res.send(path.join(__dirname, 'public', 'index.html'));
 });
 
+app.get('/create-room', (req, res) => {
+    
+});
+
 io.on('connection', (socket) => {
     console.log("user has entered the server:", socket.id);
 

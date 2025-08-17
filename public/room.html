@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <title>ChatFella</title>
+    <title>Chat Room</title>
 </head>
 <body>
+
     <div class="site">
         <header class="site__header">
              <nav class="navbar">
@@ -21,13 +20,16 @@
         </header>
 
         <main class="site__main">
-            <button class="create-room-btn-js">Create A Room</button>
-            <button class="join-room-btn-js">Join A Room</button>
+            <form class="chat-form-js" action="">
+                <input class="chat-input-js" type="text" autocomplete="off" placeholder="Type message..." name="message" id="message">
+                <button type="submit">Send</button>
+            </form>
         </main>
 
         <footer class="site__footer"></footer>
     </div>
     
-    <script src="scripts/manageRoom.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="scripts/client.js"></script>
 </body>
 </html>
