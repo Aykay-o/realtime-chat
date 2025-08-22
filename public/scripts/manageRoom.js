@@ -3,5 +3,5 @@ const joinRoomBtn = document.querySelector(".join-room-btn-js");
 
 // creating room
 createRoomBtn.addEventListener('click', () => {
-    window.location.href = '/create-room';
+    window.location.href = '/room/create-room';
 });
